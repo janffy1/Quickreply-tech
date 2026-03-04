@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QuickReply 💬</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            margin-bottom: 40px;
+            color: #ccc;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px auto;
+            width: 70%;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        button {
+            margin-top: 15px;
+            background: linear-gradient(90deg, #00f2fe, #4facfe);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .generator {
+            margin-top: 60px;
+        }
+
+        input {
+            width: 60%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 15px;
+        }
+
+        textarea {
+            width: 60%;
+            height: 120px;
+            margin-top: 15px;
+            border-radius: 10px;
+            border: none;
+            padding: 15px;
+        }
+
+        footer {
+            margin-top: 80px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>QuickReply 💬</h1>
+<p class="subtitle">Master Email Replies Instantly</p>
+
+<div class="card">
+    <p id="reply1">
+        Thank you for your email. I have received your message and will respond in detail shortly.
+    </p>
+    <button onclick="copyText('reply1')">Copy</button>
+</div>
+
+<div class="card">
+    <p id="reply2">
+        I appreciate the opportunity. Kindly find the requested details attached.
+    </p>
+    <button onclick="copyText('reply2')">Copy</button>
+</div>
+
+<div class="card">
+    <p id="reply3">
+        Thank you for reaching out. I am available to discuss this further at your convenience.
+    </p>
+    <button onclick="copyText('reply3')">Copy</button>
+</div>
+
+<div class="generator">
+    <h2>Create Your Own Reply</h2>
+    <input type="text" id="topic" placeholder="Enter message topic..." />
+    <br>
+    <textarea id="output" placeholder="Generated reply will appear here..."></textarea>
+    <br>
+    <button onclick="generateReply()">Generate Reply</button>
+</div>
+
+<footer>
+    Boost Your Productivity. Reply Smart.
+</footer>
+
+<script>
+function copyText(id) {
+    var text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+    alert("Copied to clipboard!");
+}
+
+function generateReply() {
+    var topic = document.getElementById("topic").value;
+    var message = "Hello, thank you for your message regarding " + topic + 
+    ". I will review it carefully and get back to you shortly.";
+    document.getElementById("output").value = message;
+}
+</script>
+
+</body>
+</html>
